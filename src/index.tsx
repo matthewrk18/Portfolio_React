@@ -1,12 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { Home, Contact, Navigation, Portfolio, Resume } from './components';
 import reportWebVitals from './reportWebVitals';
+import './styles.css';
+import { Container} from 'react-bootstrap' 
 
 ReactDOM.render(
+  
   <React.StrictMode>
-    <App />
+    <Router>
+
+      <Navigation></Navigation>
+      <Switch>
+
+        <Route exact path='/'>
+          <Home title={'React Portfolio'}/>
+        </Route>
+
+        <Route path='/contact'>
+        <Contact></Contact>
+        </Route>
+
+        <Route path='/portfolio'>
+        <Portfolio></Portfolio>
+        </Route>
+
+        <Route path='/resume'>
+        <Resume></Resume>
+        </Route>
+
+      </Switch>
+    </Router>
+
+
+
   </React.StrictMode>,
   document.getElementById('root')
 );
